@@ -2,11 +2,10 @@
 
 namespace Book\Controller;
 
-use Laminas\Mvc\Controller\AbstractRestfulController;
-use Laminas\View\Model\JsonModel;
 use Book\Model\Book;
 use Book\Model\BookTable;
-use Laminas\Db\Adapter\AdapterInterface;
+use Laminas\Mvc\Controller\AbstractRestfulController;
+use Laminas\View\Model\JsonModel;
 
 class BookController extends AbstractRestfulController
 {
@@ -49,5 +48,24 @@ class BookController extends AbstractRestfulController
     {
         $this->table->deleteBook($id);
         return new JsonModel(['data' => 'deleted']);
+    }
+    public function indexAction()
+    {
+        $books = []; // Ambil data dari database, misalnya menggunakan model
+
+        return new JsonModel([
+            'data' => $books,
+        ]);
+    }
+
+    public function getAction()
+    {
+        $id = $this->params()->fromRoute('id');
+
+        // Ambil data buku dengan id tertentu dari database
+
+        return new JsonModel([
+            'data' => ['book' => ['id' => $id, 'title' => 'Book Title']], // Contoh data buku
+        ]);
     }
 }
