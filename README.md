@@ -71,6 +71,28 @@ After making changes to one of the above-mentioned `.dist` configuration files y
 either need to disable then enable development mode for the changes to take effect,
 or manually make matching updates to the `.dist`-less copies of those files.
 
+## Install
+
+```bash
+composer create-project -sdev laminas/laminas-mvc-skeleton path/to/install
+
+```
+
+## Install CLI
+
+```bash
+composer require laminas/laminas-cli
+
+```
+
+## Install Doctrine
+
+```bash
+composer require doctrine/orm
+composer require doctrine/migrations
+
+```
+
 ## Running Unit Tests
 
 To run the supplied skeleton unit tests, you need to do one of the following:
